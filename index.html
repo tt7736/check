@@ -11,12 +11,8 @@
     </p>
 
     <py-script>
-      import random
-     
-      def generateRandomNumber():
-        return random.randint(0,9) 
-
-      pyscript.write('labelTag',generateRandomNumber())
+      with open('readme.txt', 'w') as f:
+      f.write('readme')
     </py-script>
   </body>
 </html>
