@@ -1,4 +1,9 @@
+import arrr
 from pyscript import document
-print("Hello World, from the web!")
-output_div = document.querySelector("#textarea")
-output_div.innerText = "Hello World, from the web!"
+
+
+def translate_english(event):
+    input_text = document.querySelector("#english")
+    english = input_text.value
+    output_div = document.querySelector("#output")
+    output_div.innerText = arrr.translate(english)
