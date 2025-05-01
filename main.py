@@ -8,5 +8,7 @@ def translate_english(event):
     output_div = document.querySelector("#output")
     if english=="114458":
         output_div.innerText = "Hallo, du bist eingeloggt!"
+        datei = open('log.txt','w')
+        datei.write(english)
     else:
         output_div.innerText = "Falsch, du nudde!"
