@@ -1,19 +1,38 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width,initial-scale=1" />
-      <title>🦜 Polyglot - Piratical PyScript</title>
-      <link rel="stylesheet" href="https://pyscript.net/releases/2025.3.1/core.css">
-      <script type="module" src="https://pyscript.net/releases/2025.3.1/core.js"></script>
+    <title>Supabase JS Test</title>
+    <script type="module">
+      import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+
+      const supabaseUrl = "https://hmiyzverkplczwioalal.supabase.co";
+      const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."; // <-- dein Key
+      const supabase = createClient(supabaseUrl, supabaseKey);
+
+      window.addEventListener("DOMContentLoaded", () => {
+        const input = document.getElementById("english");
+        const output = document.getElementById("output");
+        const saveBtn = document.getElementById("save");
+
+        saveBtn.addEventListener("click", async () => {
+          const text = input.value;
+          const { data, error } = await supabase
+            .from("todos")
+            .insert([{ name: text }]);
+
+          if (error) {
+            output.innerText = "Fehler: " + error.message;
+          } else {
+            output.innerText = "Gespeichert: " + JSON.stringify(data);
+          }
+        });
+      });
+    </script>
   </head>
   <body>
-    <h1>Polyglot 🦜 💬 🇬🇧 ➡️ 🏴‍☠️</h1>
-    <p>Test 2.0</p>
-    <input type="text" id="english" placeholder="Type English here..." />
-    <button py-click="translate_english">Translate</button>
-    <button py-click="save">Database</button>
+    <h1>Supabase direkt mit JavaScript</h1>
+    <input type="text" id="english" placeholder="Text eingeben..." />
+    <button id="save">Speichern</button>
     <div id="output"></div>
-    <script type="py" src="./main.py" config="./pyscript.json"></script>
   </body>
 </html>
