@@ -10,11 +10,12 @@ db = supabase.create_client(url, key)
 
 
 def translate_english(event):
-    input_text = document.querySelector("#english")
-    english = input_text.value
-    output_div = document.querySelector("#output")
-    if english=="114458":
-        output_div.innerText = "Hallo, du bist eingeloggt!"
-        data = db.table("todos").insert({"name":english}).execute()
-    else:
-        output_div.innerText = "Falsch, du nudde!"
+    data = db.table("todos").insert({"name":"Todo 5"}).execute()
+    # input_text = document.querySelector("#english")
+    # english = input_text.value
+    # output_div = document.querySelector("#output")
+    # if english=="114458":
+    #     output_div.innerText = "Hallo, du bist eingeloggt!"
+    #     data = db.table("todos").insert({"name":english}).execute()
+    # else:
+    #     output_div.innerText = "Falsch, du nudde!"
