@@ -1,4 +1,3 @@
-import arrr
 from pyscript import document
 
 # from dotenv import load_dotenv
