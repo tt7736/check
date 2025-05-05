@@ -16,6 +16,6 @@ def translate_english(event):
     output_div = document.querySelector("#output")
     if english=="114458":
         output_div.innerText = "Hallo, du bist eingeloggt!"
-        data = db.table("todos").insert(english).execute()
+        data = db.table("todos").insert({"name":english}).execute()
     else:
         output_div.innerText = "Falsch, du nudde!"
